@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Post</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'polls/styl3.css' %}">
+    <script src="{% static 'polls/skrypt.js' %}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+        const liczba = document.getElementById('liczba');
+   
+        const wartosc = parseFloat(liczba.textContent);
+        if (wartosc < 0) {
+          liczba.style.color = '#e50000';
+        } 
+        else if (wartosc > 0) {
+          liczba.style.color = '#00e526';
+        }
+        else {
+            liczba.style.color = 'white';
+        }
+        
+    });
+      </script>
+</head>
+<body>
+    <div id="post">
+  
+    <h1>{{ post.title }}</h1>
+    <p id="info">Opublikowany {{ post.created_at }} przez {{ post.user }}</p>
+   
+    <p>{{ post.content }}</p>
+    </div>
+
+
+    <div id="ocen">
+       
+        <div id="like" onclick="react({{ post.id }}, 'like')">Lubię to</div>
+      
+        <div id="dislike" onclick="react({{ post.id }}, 'dislike')">Nie podoba mi się</div>
+        
+        <b id="liczba">{{ post.score }}</b>
+        
+       
+    </div>
+
+    <div id="powrot">
+    <a href="{% url 'post_list' %}">Powrót do listy postów</a>
+    </div>
+</body>
+</html>
+

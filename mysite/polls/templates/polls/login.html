@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logowanie</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'polls/styl2.css' %}">
+</head>
+<body>
+
+<h2>Logowanie</h2>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}  <!-- Wyświetla formularz jako paragrafy -->
+    <button type="submit">Zaloguj się</button>
+</form>
+<p>Chcesz założyć konto? <a href="{% url 'register' %}">Zarejestruj się</a></p>
+
+{% if form.errors %}
+    <ul>
+        {% for field in form %}
+            {% for error in field.errors %}
+                <li>{{ error }}</li>
+            {% endfor %}
+        {% endfor %}
+    </ul>
+{% endif %}
+
+</body>
+</html>

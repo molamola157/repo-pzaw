@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Nowy post</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'polls/styl2.css' %}">
+</head>
+<body>
+    <div id="a">
+    <h1>Utwórz nowy post</h1>
+    </div>
+    <div id="stworz">
+    <form method="post" >
+        {% csrf_token %}
+        <p>Opublikuj post jako {{user.username}}</label><p>
+        <textarea name="contenttytul" id="contenttytul" rows="4" cols="50"></textarea>
+        <textarea name="content" id="content" rows="4" cols="50"></textarea><br>
+        <button type="submit">Zapisz</button>
+    </form>
+    <a href="{% url 'post_list' %}">Powrót do listy postów</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'polls/styl1.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strona z przyciskiem</title>
+    
+</head>
+<body>
+    <button onclick="startFunction()">
+        <a href="{% url 'post_new' %}">ROZPOCZNIJ</a>
+    </button>
+
+    <script>
+        function startFunction() {
+            alert('Rozpoczęto!');
+        }
+    </script>
+</body>
+</html>

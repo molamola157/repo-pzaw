@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista postów</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'polls/styl4.css' %}">
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+        const liczba = document.querySelectorAll('.wynik');
+        liczba.forEach(function(liczba) {
+        const wartosc = parseFloat(liczba.textContent);
+        if (wartosc < 0) {
+          liczba.style.color = '#e50000';
+        } 
+        else if (wartosc > 0) {
+          liczba.style.color = '#00e526';
+        }
+        else {
+            liczba.style.color = 'white';
+        }
+    })
+    });
+      </script>
+</head>
+<body>
+    <div id="a">
+      
+    <h1>Witaj, {{ user.username }}!</h1>
+   
+   
+    {% if user.is_authenticated %}
+    <div id="out">
+    <a href="{% url 'logout' %}">Wyloguj się</a>
+    </div>
+    <div id="dodaj">
+    <a href="{% url 'post_new' %}">Dodaj nowy post</a>
+    </div>
+    {% else %}
+        <a href="{% url 'login' %}">Zaloguj się</a>
+    {% endif %}
+    </div>
+
+    <div id="posty">
+    <h2>Lista wszystkich postów</h2>
+   
+        {% for post in posts %}
+        <div class="post">
+         
+            <a href="{% url 'post_detail' post.id %}">{{ post.title }}</a> 
+            <div id="dane">
+            <p id="info">Opublikowany {{ post.created_at }} przez {{ post.user }}</p>
+            <p class="wynik">{{ post.score }}</p>
+            </div>
+        </div>
+             
+            
+        {% endfor %}
+
+    </div>
+   
+   
+   
+</body>
+</html>

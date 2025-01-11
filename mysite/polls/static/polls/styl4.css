@@ -1,0 +1,74 @@
+body {
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    background-color: #18171c;
+    color:rgb(216, 224, 231);
+    
+}
+
+#a {
+     
+    background-color: #3d3b46;;
+    display: inline-block;
+    width:100%;
+    
+}
+
+#a div {
+    padding:1vw;
+    float: right;
+    color:white;
+    
+  
+}
+
+a {
+    color:white;
+}
+
+
+#a h1 {
+    float: left;   
+    padding-left:10px;
+}
+
+#posty {
+    padding-left:10px;
+}
+
+
+#info {
+    font-size:12px;
+    color:rgb(217, 217, 217);
+}
+
+.wynik {
+    position: relative;
+    float:right;
+    bottom:65px;
+    font-size:28px;
+    color:rgb(217, 217, 217);
+}
+
+.post {
+    padding:10px;
+    width:96vw;
+    height:10vh;
+    background-color: #3a3745;
+    margin-top:10px;
+    font-size:18px;
+}
+
+
+
+#dodaj {
+    background-color: #406143;
+}
+
+
+#out {
+    background-color: #614040;
+}
+
